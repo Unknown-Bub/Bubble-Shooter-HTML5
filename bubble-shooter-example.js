@@ -69,8 +69,8 @@ window.onload = function() {
                     x: 0,
                     y: 0,
                     angle: 0,
-                    speed: 1000,
-                    dropspeed: 900,
+                    speed: 600,
+                    dropspeed: 500,
                     tiletype: 0,
                     visible: false
                 },
@@ -152,7 +152,7 @@ window.onload = function() {
     // Initialize the game
     function init() {
         // Load images
-        images = loadImages(["bubble-sprites.png"]);
+        images = loadImages(["bubble-sprites2.png"]);
         bubbleimage = images[0];
     
         // Add mouse events
@@ -316,12 +316,13 @@ window.onload = function() {
             }
             
             // Add cluster score
-            score += cluster.length * 100;
+            score += cluster.length * 10;
             
             // Find floating clusters
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
+                var scoreboost = 20
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
                     for (var j=0; j<floatingclusters[i].length; j++) {
@@ -330,11 +331,14 @@ window.onload = function() {
                         tile.shift = 1;
                         tile.velocity = player.bubble.dropspeed;
                         
-                        score += 100;
+                        if (floatingclusters.length <= 16) {
+                        scoreboost += scoreboost;
+                        }
                     }
                 }
             }
             
+            score += scoreboost
             animationstate = 1;
         }
         
@@ -369,11 +373,11 @@ window.onload = function() {
                         tilesleft = true;
                         
                         // Accelerate dropped tiles
-                        tile.velocity += dt * 700;
+                        tile.velocity += dt * 1500;
                         tile.shift += dt * tile.velocity;
                             
                         // Alpha animation
-                        tile.alpha -= dt * 8;
+                        tile.alpha -= dt * 4;
                         if (tile.alpha < 0) {
                             tile.alpha = 0;
                         }
