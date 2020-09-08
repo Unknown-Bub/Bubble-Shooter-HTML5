@@ -32,7 +32,7 @@ window.onload = function() {
     
     var initialized = false;
     
-    // Level
+    // Level 
     var level = {
         x: 4,           // X position
         y: 83,          // Y position
@@ -93,6 +93,7 @@ window.onload = function() {
     var gamestate = gamestates.init;
     
     // Score
+    var scoreboost = 0;
     var score = 0;
     
     var turncounter = 0;
@@ -322,7 +323,7 @@ window.onload = function() {
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
-                var scoreboost = 20
+                scoreboost = 20
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
                     for (var j=0; j<floatingclusters[i].length; j++) {
@@ -332,16 +333,16 @@ window.onload = function() {
                         tile.velocity = player.bubble.dropspeed;
                         
                         if (floatingclusters.length <= 16) {
-                        var scoreboost += scoreboost;
+                        scoreboost = 2 * scoreboost;
                         } else {
-                          var scoreboost = 1310720;
+                          scoreboost = 1310720;
                         }
                     }
                 }
             }
             
             score += scoreboost;
-            var scoreboost = 0;
+            scoreboost = 0;
             animationstate = 1;
         }
         
@@ -900,7 +901,7 @@ window.onload = function() {
     function newGame() {
         // Reset score
         score = 0;
-        var scoreboost = 0
+        scoreboost = 0
         
         turncounter = 0;
         rowoffset = 0;
