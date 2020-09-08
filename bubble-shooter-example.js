@@ -323,7 +323,7 @@ window.onload = function() {
             floatingclusters = findFloatingClusters();
             
             if (floatingclusters.length > 0) {
-                scoreboost = 20
+                scoreboost = 10
                 // Setup drop animation
                 for (var i=0; i<floatingclusters.length; i++) {
                     for (var j=0; j<floatingclusters[i].length; j++) {
