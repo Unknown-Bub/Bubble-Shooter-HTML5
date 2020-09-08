@@ -718,14 +718,14 @@ window.onload = function() {
         var yoffset =  level.tileheight/2;
         
         // Draw level background
-        context.fillStyle = "#8c8c8c";
+        context.fillStyle = "#85f724";
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
         
         // Render tiles
         renderTiles();
         
         // Draw level bottom
-        context.fillStyle = "#656565";
+        context.fillStyle = "#00fa00";
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
         
         // Draw score
@@ -754,35 +754,36 @@ window.onload = function() {
         
         // Game Over overlay
         if (gamestate == gamestates.gameover) {
-            context.fillStyle = "rgba(0, 0, 0, 0.8)";
+            context.fillStyle = "rgba(0, 0, 0, 0.9)";
             context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 2 * level.tileheight + 8 - yoffset);
             
-            context.fillStyle = "#ffffff";
-            context.font = "24px Verdana";
-            drawCenterText("Game Over!", level.x, level.y + level.height / 2 + 10, level.width);
-            drawCenterText("Click to start", level.x, level.y + level.height / 2 + 40, level.width);
+            context.fillStyle = "#00ff00";
+            context.font = "96px Verdana";
+            drawCenterText("GAME OVER", level.x, level.y + level.height / 2 - 80, level.width);
+            context.font = "24px Verdana"
+            drawCenterText("Wanna insert another Coin?", level.x, level.y + level.height / 2 + 40, level.width);
         }
     }
     
     // Draw a frame around the game
     function drawFrame() {
         // Draw background
-        context.fillStyle = "#e8eaec";
+        context.fillStyle = "007700";
         context.fillRect(0, 0, canvas.width, canvas.height);
         
         // Draw header
-        context.fillStyle = "#303030";
+        context.fillStyle = "#00bb00";
         context.fillRect(0, 0, canvas.width, 79);
         
         // Draw title
         context.fillStyle = "#ffffff";
         context.font = "24px Verdana";
-        context.fillText("Bubble Shooter Example - Rembound.com", 10, 37);
+        context.fillText("Puzzle Bobble Example - now Accurate!", 10, 37);
         
         // Display fps
-        context.fillStyle = "#ffffff";
+        context.fillStyle = "#ff0000";
         context.font = "12px Verdana";
-        context.fillText("Fps: " + fps, 13, 57);
+        context.fillText("FPS: " + fps, 13, 57);
     }
     
     // Render tiles
@@ -832,17 +833,17 @@ window.onload = function() {
         var centery = player.y + level.tileheight/2;
         
         // Draw player background circle
-        context.fillStyle = "#7a7a7a";
+        context.fillStyle = "#af6f00";
         context.beginPath();
         context.arc(centerx, centery, level.radius+12, 0, 2*Math.PI, false);
         context.fill();
         context.lineWidth = 2;
-        context.strokeStyle = "#8c8c8c";
+        context.strokeStyle = "#6a4700";
         context.stroke();
 
         // Draw the angle
         context.lineWidth = 2;
-        context.strokeStyle = "#0000ff";
+        context.strokeStyle = "#ff8f00";
         context.beginPath();
         context.moveTo(centerx, centery);
         context.lineTo(centerx + 1.5*level.tilewidth * Math.cos(degToRad(player.angle)), centery - 1.5*level.tileheight * Math.sin(degToRad(player.angle)));
