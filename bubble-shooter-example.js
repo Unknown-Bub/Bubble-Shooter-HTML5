@@ -332,16 +332,16 @@ window.onload = function() {
                         tile.velocity = player.bubble.dropspeed;
                         
                         if (floatingclusters.length <= 16) {
-                        scoreboost += scoreboost;
+                        var scoreboost += scoreboost;
                         } else {
-                          scoreboost = 1310720
+                          var scoreboost = 1310720;
                         }
                     }
                 }
             }
             
-            score += scoreboost
-            var scoreboost = 0
+            score += scoreboost;
+            var scoreboost = 0;
             animationstate = 1;
         }
         
@@ -718,14 +718,14 @@ window.onload = function() {
         var yoffset =  level.tileheight/2;
         
         // Draw level background
-        context.fillStyle = "#85f724";
+        context.fillStyle = "#850085";
         context.fillRect(level.x - 4, level.y - 4, level.width + 8, level.height + 4 - yoffset);
         
         // Render tiles
         renderTiles();
         
         // Draw level bottom
-        context.fillStyle = "#00fa00";
+        context.fillStyle = "#00e4fa";
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
         
         // Draw score
@@ -768,11 +768,11 @@ window.onload = function() {
     // Draw a frame around the game
     function drawFrame() {
         // Draw background
-        context.fillStyle = "007700";
+        context.fillStyle = "000077";
         context.fillRect(0, 0, canvas.width, canvas.height);
         
         // Draw header
-        context.fillStyle = "#00bb00";
+        context.fillStyle = "#0000bb";
         context.fillRect(0, 0, canvas.width, 79);
         
         // Draw title
@@ -900,6 +900,7 @@ window.onload = function() {
     function newGame() {
         // Reset score
         score = 0;
+        var scoreboost = 0
         
         turncounter = 0;
         rowoffset = 0;
