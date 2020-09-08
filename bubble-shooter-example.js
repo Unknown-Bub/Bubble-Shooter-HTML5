@@ -333,6 +333,8 @@ window.onload = function() {
                         
                         if (floatingclusters.length <= 16) {
                         scoreboost += scoreboost;
+                        } else {
+                          scoreboost = 1310720
                         }
                     }
                 }
