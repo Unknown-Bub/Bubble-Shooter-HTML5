@@ -341,6 +341,7 @@ window.onload = function() {
             }
             
             score += scoreboost
+            var scoreboost = 0
             animationstate = 1;
         }
         
@@ -728,11 +729,12 @@ window.onload = function() {
         context.fillRect(level.x - 4, level.y - 4 + level.height + 4 - yoffset, level.width + 8, 2*level.tileheight + 3);
         
         // Draw score
-        context.fillStyle = "#ffffff";
+        context.fillStyle = "#00ff00";
         context.font = "18px Verdana";
         var scorex = level.x + level.width - 150;
         var scorey = level.y+level.height + level.tileheight - yoffset - 8;
-        drawCenterText("Score:", scorex, scorey, 150);
+        drawCenterText("1UP", scorex-70, scorey, 150);
+        context.fillStyle = "#ffffff"
         context.font = "24px Verdana";
         drawCenterText(score, scorex, scorey+30, 150);
 
